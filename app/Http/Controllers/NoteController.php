@@ -14,7 +14,9 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return view('notes.index');
+        return view('notes.index', [
+            'notes' =>  Note::with('user')->latest()->get(),
+        ]);
     }
 
     /**
