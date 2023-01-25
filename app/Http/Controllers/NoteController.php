@@ -35,7 +35,13 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'message' => 'required|string|max:255',
+        ]);
+ 
+        $request->user()->notes()->create($validated);
+ 
+        return redirect(route('notes.index'));
     }
 
     /**
