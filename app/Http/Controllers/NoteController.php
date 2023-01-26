@@ -65,7 +65,11 @@ class NoteController extends Controller
      */
     public function edit(Note $note)
     {
-        //
+        $this->authorize('update', $note); 
+
+        return view('notes.edit', [
+            'note' => $note,
+        ]); 
     }
 
     /**
@@ -77,7 +81,15 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-        //
+        $this->authorize('update', $note); 
+
+        $validated = $request->validate([
+            'message' => 'required|string|max:255', 
+        ]);
+
+        $note->update($validated);
+
+        return redirect(route('notes.index'));
     }
 
     /**
