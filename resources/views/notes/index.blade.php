@@ -4,7 +4,7 @@
             @csrf
             <textarea
                 name="message"
-                placeholder="{{ __('What\'s on your mind?') }}"
+                placeholder="{{ __('What are you grateful for?') }}"
                 class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
             >{{ old('message') }}</textarea>
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
@@ -39,6 +39,13 @@
                                         <x-dropdown-link :href="route('notes.edit', $note)">
                                             {{ __('Edit') }}
                                         </x-dropdown-link>
+                                        <form method="POST" action="{{ route('notes.destroy', $note) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <x-dropdown-link :href="route('notes.destroy', $note)" onclick="event.preventDefault(); this.closest('form').submit();">
+                                                {{ __('Delete') }}
+                                            </x-dropdown-link>
+                                        </form>
                                     </x-slot>
                                 </x-dropdown>
                             @endif

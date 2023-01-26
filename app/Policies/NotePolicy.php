@@ -65,7 +65,7 @@ class NotePolicy
      */
     public function delete(User $user, Note $note)
     {
-        //
+        return $this->update($user, $note);
     }
 
     /**
