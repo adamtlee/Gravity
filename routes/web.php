@@ -23,6 +23,14 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/product', function () {
+    return view('product'); 
+}); 
+
+Route::get('/features', function () {
+    return view('features');
+});
+
 Route::get('/welcome', function () {
     return view('welcome');
 });

@@ -1,7 +1,7 @@
 <div class="px-6 pt-6 lg:px-8">
     <nav class="flex items-center justify-between" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="#" class="-m-1.5 p-1.5">
+        <a href="{{ url('/') }}" class="-m-1.5 p-1.5">
           <span class="sr-only">Gravity</span>
           <h1>Gravity_</h1>
         </a>
@@ -16,11 +16,11 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Product</a>
+        <a href="{{ url('product') }}" class="text-sm font-semibold leading-6 text-gray-900">Product</a>
 
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
+        <a href="{{ url('features') }}" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
 
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">About</a>
+        <a href="{{ url('about')}}" class="text-sm font-semibold leading-6 text-gray-900">About</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             @if (Route::has('login'))
