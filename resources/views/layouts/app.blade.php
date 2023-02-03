@@ -15,8 +15,11 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
+            @if(Auth::Check())
+                @include('layouts.navigation')
+            @else
+                @include('layouts.home')
+            @endif
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
